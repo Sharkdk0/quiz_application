@@ -37,17 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'quiz_app',
     'authentication',
     'rest_framework',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    "allauth.account.middleware.AccountMiddleware",
     'rest_framework.authtoken',
     'dj_rest_auth',
-    
+    'dj_rest_auth.registration',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
+
 ]
 
 ROOT_URLCONF = 'quiz_project.urls'
@@ -135,3 +139,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DJANGO_REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": "rest_framework.authentication.TokenAuthentication",
+}
