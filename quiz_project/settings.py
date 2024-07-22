@@ -150,3 +150,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+
+BASE_EMAIL_VERIFY_URL = "http://localhost:3000/verify-email/"
